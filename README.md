@@ -27,6 +27,55 @@ Get touch locations by this:
 Visualizer.getTouches()
 ```
 
+### Usage with SceneDelegate 
+
+```swift
+import UIKit
+import SwiftUI
+import TouchVisualizer
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
+        
+        Visualizer.start()
+        
+        let contentView = ContentView()
+
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = UIHostingController(rootView: contentView)
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+    }
+}
+```
+
+### Usage with SwiftUI
+
+```swift
+import TouchVisualizer
+import SwiftUI
+
+@main
+struct Example: App {
+    
+    init() {
+        Visualizer.start()
+    }
+    
+    var body: some Scene {
+        WindowGroup {
+            MainView()
+        }
+    }
+}
+```
+
 ## Installation and Setup
 
 Follow the instructions on [developer.apple.com](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) on how to add a Swift Package to your iOS app: [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
