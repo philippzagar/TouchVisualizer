@@ -17,14 +17,12 @@ public struct Configuration {
 
     // Image of touch points
     public var image: UIImage? = {
-        /*
         let rect = CGRect(x: 0.0, y: 0.0, width: 60.0, height: 60.0)
 
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         let contextRef = UIGraphicsGetCurrentContext()
-        contextRef?.setFillColor(Constants.defaultColor.cgColor)
+        //contextRef?.setFillColor(Constants.defaultColor.cgColor)
         contextRef?.fillEllipse(in: rect)
-         */
         var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
