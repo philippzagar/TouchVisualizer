@@ -22,7 +22,7 @@ public struct Configuration {
 
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         let contextRef = UIGraphicsGetCurrentContext()
-        contextRef?.setFillColor(color.cgColor)
+        contextRef?.setFillColor(color?.cgColor ?? defaultColor.cgColor)
         contextRef?.fillEllipse(in: rect)
         var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
