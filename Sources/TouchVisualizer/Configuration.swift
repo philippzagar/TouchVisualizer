@@ -17,7 +17,7 @@ public struct Configuration {
     public var color: UIColor? = Constants.defaultColor
 
     // Image of touch points
-    public var image: UIImage? = {
+    public var image: UIImage? = { (_ -> UIImage?) in
         let rect = CGRect(x: 0.0, y: 0.0, width: 60.0, height: 60.0)
 
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
