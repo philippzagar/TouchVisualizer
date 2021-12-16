@@ -7,8 +7,7 @@ import UIKit
 
 public struct Configuration {
     private struct Constants {
-        static let defaultColor = UIColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 0.8)
-        static let testColor = UIColor(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 1)
+        static let defaultColor = UIColor(red: 255.0/255.0, green: 1.0/255.0, blue: 91.0/255.0, alpha: 0.8)
     }
 
     /**
@@ -17,18 +16,18 @@ public struct Configuration {
     public var color: UIColor? = Constants.defaultColor
 
     // Image of touch points
-    public var image: UIImage? = { (_ -> UIImage?) in
+    public var image: UIImage? = {
         let rect = CGRect(x: 0.0, y: 0.0, width: 60.0, height: 60.0)
 
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         let contextRef = UIGraphicsGetCurrentContext()
-        contextRef?.setFillColor(self.color?.cgColor ?? Constants.defaultColor.cgColor)
+        contextRef?.setFillColor(Constants.defaultColor.cgColor)
         contextRef?.fillEllipse(in: rect)
         var image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
         return image?.withRenderingMode(.alwaysTemplate)
-    }
+    }()
 
     /**
     Default touch point size. If `showsTouchRadius` is enabled, this value is ignored
